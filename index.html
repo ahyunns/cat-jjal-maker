@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>고양이 가라사대</title>
+</head>
+<style>
+  body {
+    text-align: center;
+  }
+
+  .main-card button {
+    position: relative;
+    left: -45px;
+    bottom: 15px;
+  }
+
+  .favorites {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .favorites img {
+    width: 150px;
+  }
+</style>
+
+<body>
+  <div id="app"></div>
+
+  <!-- <h1>1번째 고양이 가라사대</h1>
+  <form>
+    <input type="text" name="name" placeholder="영어 대사를 입력해주세요" />
+    <button type="submit">생성</button>
+  </form>
+  <div class="main-card">
+    <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" alt="고양이" width="400" />
+    <button>🤍</button>
+  </div>
+  <ul class="favorites">
+    <li>
+      <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" alt="고양이" />
+    </li>
+    <li>
+      <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" alt="고양이" />
+    </li>
+    <li>
+      <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" alt="고양이" />
+    </li>
+  </ul> -->
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    console.log("야옹");
+
+    // const title = (
+    //   <h1>1번째 고양이 가라사대</h1>
+    // );
+    
+    // const Form = () => {
+    //   return (
+    //     <form>
+    //       <input type="text" name="name" placeholder="영어 대사를 입력해주세요" />
+    //       <button type="submit">생성</button>
+    //     </form>
+    //   );
+    // }
+   
+    // const form = (
+    //   <form>
+    //     <input type="text" name="name" placeholder="영어 대사를 입력해주세요" />
+    //     <button type="submit">생성</button>
+    //   </form>
+    // );
+
+    // const catItem = (
+    //   <li>
+    //     <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" />
+    //   </li>
+    // );
+    
+    const Title = (props) => {
+      return <h1>{props.children}</h1>;
+    }
+
+    // 중괄호 안쓰면 return 생략가능
+    const Form = () => (
+      <form>
+        <input type="text" name="name" placeholder="영어 대사를 입력해주세요" />
+        <button type="submit">생성</button>
+      </form>
+    );
+
+
+    // 컴포넌트는 무조건 대문자로 하기
+    // function CatItem(img, title) {
+    // 첫번째 인자에 다 들어옴
+    function CatItem(props) {
+      console.log(props);
+      return (
+        <li>
+          <img src={props.img} />
+        </li>
+      );
+    }
+    // 리액트에서는 class가 아닌 className 이라고 적음
+    function Favorites() {
+      return (
+        <ul className="favorites">
+          <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn" />
+          <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript" />
+        </ul>
+      );
+    }
+    // const favorites = (
+    //   <ul class="favorites">
+    //     <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn" />
+    //     <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript" />
+    //   </ul>
+    // );
+    // const MainCard = (props) => {
+    //   return (
+    //     <div class="main-card">
+    //       <img src={props.img} />
+    //       <button>🤍</button>
+    //     </div>
+    //   )
+    // }
+    
+    // const MainCard = () => {
+    //   return (
+    //     <div class="main-card">
+    //       <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" alt="고양이" width="400" />
+    //       <button>🤍</button>
+    //     </div>
+    //   )
+    // }
+    // const mainCard = (
+    //   <div class="main-card">
+    //     <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" alt="고양이" width="400" />
+    //     <button>🤍</button>
+    //   </div>
+    // );
+
+    // function sayHello(name) {
+    //   return "안녕 + " + name;
+    // }
+    // sayHello('유림'); // 안녕 유림
+    // sayHello("여러분"); // 안녕 여러분
+    // function Card(title, description) {
+    //   return <div><h2>{title}</h2>{description}</div>
+    // }
+    // Card('리액트 짱', '리액트 입니다');
+    // Card('리액트 싫어요', '리액트 입니다2');
+    // <Card title="리액트 짱" description="리액트 입니다" />
+    // <Card title="리액트 싫어요" description="리액트 입니다" />
+
+    
+    const MainCard = ({img}) => {
+      return (
+        <div className="main-card">
+          <img src={img} alt="고양이" width="400" />
+          <button>🤍</button>
+        </div>
+      )
+    }
+
+    // main card의 이미지를 프롭으로 받기
+    const app = (
+      <div>
+        <Title>1번째 고양이 가라사대</Title>
+        <Title>2번째 고양이 가라사대</Title>
+        <Form />
+        <MainCard img="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" />
+        <Favorites />
+      </div>
+    )
+    // const app = (
+    //   <div>
+    //     {title}
+    //     {form}
+    //     {mainCard}
+    //     <Favorites />
+    //   </div>
+    // )
+    const 여기다가그려 = document.querySelector("#app");
+
+    ReactDOM.render(app, 여기다가그려);
+  </script>
+</body>
+</html>
